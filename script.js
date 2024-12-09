@@ -90,3 +90,7 @@ export function setCookie(name, value, days = 30) {
 		  console.error('Error: Unable to proceed without an API key or tenant.');
 	  }
 	})();
+
+	  
+import { get_menu } from "./api.js";
+get_menu();
