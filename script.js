@@ -45,6 +45,7 @@ async function getMenu() {
         throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const data = await response.json();
+	console.log(data);
     return data; 
 }
 
@@ -55,21 +56,33 @@ async function createMenu() {
         const menu = await getMenu(); 
 
         let menuContainer = document.getElementById("menu-container");
-        menuContainer.innerHTML = '';
 
         menu.items.forEach(item => {
+			if (item.type === "wonton"){
             let itemElement = document.createElement("div");
-            itemElement.classList.add("menu-item-1");
-
+            itemElement.classList.add("div-row")
+			
             let itemName = document.createElement("h3");
             itemName.textContent = item.name;
             itemElement.appendChild(itemName);
 
-            let itemPrice = document.createElement('p');
+			let itemLine=document.createElement("p");
+			itemLine.classList.add("line");
+			itemElement.appendChild(itemLine)
+
+            let itemPrice = document.createElement('span');
             itemPrice.textContent = `${item.price} SEK`;
             itemElement.appendChild(itemPrice);
 
             menuContainer.appendChild(itemElement);
+
+			let divText=document.createElement("div");
+			let text=document.createElement("p");
+			text.innerText=item.ingredients;
+			divText.appendChild(text);
+			menuContainer.appendChild(divText);
+			
+		}
         });
     } catch (error) {
         console.error('Error:', error.message);

@@ -4,6 +4,7 @@ body {
   }
   .container {
 	background-color: #489078;
+	font-family: Fira Sans;
   }
   .box-basket {
 	width: 64px;
@@ -18,12 +19,7 @@ body {
   .svg {
 	z-index: 1;
   }
-  .menu-item-1 {
-	background-color: #605858;
-	display: flex;
-	justify-content: space-between;
-	padding: 0 16px 0 16px;
-  }
+ 
   .title {
 	display: flex;
 	justify-content: center;
@@ -38,9 +34,13 @@ body {
   }
   #menu-container {
 	color: #f4f3f1f0;
-  
+	background-color: #605858;
 	margin: 16px;
 	border-radius: 8px;
+	padding: 20px;
+  }
+  #menu-container p{
+	font-size: 16px;
   }
   .header-basket{
 	  display: flex;
@@ -48,3 +48,32 @@ body {
 	  padding-top: 20px;
 	  padding-right: 20px;
   }
+  .line{
+	width: 25%;
+	border-bottom: 3px dotted #f4f3f1f0;
+	
+  }
+  .div-row{
+	gap: 20px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 20px;
+  }
+
+  
+
+@media screen and (min-width:500px){
+	.line{
+		width: 40%;
+	}
+	
+}
+
+@media screen and (min-width:600px){
+	.line{
+		width: 50%;
+	}
+	
+}
