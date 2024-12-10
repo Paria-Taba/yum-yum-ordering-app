@@ -32,7 +32,7 @@ body {
 	color: #f4f3f1f0;
 	box-shadow: 1px 1px 0px 0px #0000004d;
   }
-  #menu-container {
+  #menu-container, .menu-2 {
 	color: #f4f3f1f0;
 	background-color: #605858;
 	margin: 16px;
@@ -61,19 +61,41 @@ body {
 	justify-content: space-between;
 	font-size: 20px;
   }
+ .div-souce{
+	margin-top: 20px;
+	
+ }
+  .div-souce>*{
+	border-radius: 4px;
+	background-color: #F1F0EC3D;
+	font-size: 16px;
+	padding: 10px;
+	
+  }
 
-  
+  .menu2-div{
+	font-size: 20px;
+	display: flex;
+	justify-content: space-between;
 
+  }
+
+@media screen and (min-width:300px){
+	.line{
+		width: 8%;
+	}
+	
+}
 @media screen and (min-width:500px){
 	.line{
-		width: 40%;
+		width: 30%;
 	}
 	
 }
 
 @media screen and (min-width:600px){
 	.line{
-		width: 50%;
+		width: 45%;
 	}
 	
 }
