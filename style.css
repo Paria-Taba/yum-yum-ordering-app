@@ -22,20 +22,19 @@ body {
 .svg {
   z-index: 1;
 }
-.circle{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: absolute;
-	width: 50%;
-	height: 50%;
-	background-color: #EB5757;
-	border-radius: 100%;
-	bottom: 70%;
-	left: 70%;
-	color: white;
-	font-weight: bold;
-
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background-color: #eb5757;
+  border-radius: 100%;
+  bottom: 70%;
+  left: 70%;
+  color: white;
+  font-weight: bold;
 }
 .title {
   display: flex;
@@ -130,4 +129,70 @@ body {
   .line {
     width: 45%;
   }
+}
+
+.container-2 {
+  background-color: #eeeeee;
+  display: none;
+  min-height: 800px;
+ 
+}
+.header-page2{
+	width: 100%;
+	height: 80px;
+}
+.svg-2{
+	position: absolute;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  padding-top: 20px;
+
+  right: 20px;
+
+}
+.total-row {
+  display: flex;
+  background-color: #3531313d;
+  color: #353131;
+  height: 78px;
+  padding: 10px 20px 10px 20px;
+  justify-content: space-between;
+}
+.total-column {
+  display: flex;
+  flex-direction: column;
+}
+.button-container {
+  width: 358px;
+}
+.total-column:first-child {
+  font-size: 22px;
+}
+.total-column:last-child {
+  font-size: 16px;
+}
+.sum {
+  font-size: 32px;
+}
+.button {
+	align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 200px;
+}
+.button2-container {
+  background-color: #353131;
+  width: 358px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 78px;
+  color: white;
+  margin-bottom: 30px;
+  font-size: 24px;
 }
