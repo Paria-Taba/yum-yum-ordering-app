@@ -167,7 +167,7 @@ body {
   flex-direction: column;
 }
 .button-container {
-  width: 358px;
+  width: 300px;
 }
 .total-column:first-child {
   font-size: 22px;
@@ -187,7 +187,7 @@ body {
 }
 .button2-container {
   background-color: #353131;
-  width: 358px;
+  width: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -195,4 +195,14 @@ body {
   color: white;
   margin-bottom: 30px;
   font-size: 24px;
+}
+.cart-item{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 22px;
+	padding: 10px;
+}
+.all-cart{
+	padding-top: 100px;
 }

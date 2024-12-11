@@ -179,40 +179,59 @@ async function createMenu3() {
 
 createMenu3();
 
-function increaseNumber(){
-		let circle = document.querySelector(".circle");
-		let menuContainer = document.getElementById("menu-container");
-		let menu2 = document.querySelector(".menu-2");
-		let menu3 = document.querySelector(".menu-3");
-		let count = 0;
-		
-		function incrementCircle() {
-			count++;  
-			circle.innerText = count;
-		}
-		
-		menuContainer.addEventListener("click", (event) => {
-			if (event.target.classList.contains("div-row")) {
-				incrementCircle();
-			}
-		});
-		
-		menu2.addEventListener("click", (event) => {
-			if (event.target.closest(".div-souce")) {
-				incrementCircle();
-				
-			}
-		});
-		
-		menu3.addEventListener("click", (event) => {
-			if (event.target.closest(".div-souce")) {
-				incrementCircle();
-				
-			}
-		});
+
+function increaseNumber() {
+    let circle = document.querySelector(".circle");
+    let menuContainer = document.getElementById("menu-container");
+    let menu2 = document.querySelector(".menu-2");
+    let menu3 = document.querySelector(".menu-3");
+    let cartContainer = document.querySelector(".cart-container");
+    let count = 0;
+
+    function incrementCircle() {
+        count++;
+        circle.innerText = count;
+    }
+
+
+    function addToCart(itemName, itemPrice) {
+        let cartItem = document.createElement("div");
+        cartItem.classList.add("cart-item");
+        cartItem.innerText = `${itemName} .......... ${itemPrice}`;  
+        cartContainer.appendChild(cartItem);
+		let allCart=document.querySelector(".all-cart");
+		allCart.appendChild(cartContainer)
+    }
+
+   
+    menuContainer.addEventListener("click", (event) => {
+        if (event.target.classList.contains("div-row")) {
+            incrementCircle();
+          
+            let itemName = event.target.querySelector("h3").innerText;
+            let itemPrice = event.target.querySelector("span").innerText;
+            addToCart(itemName, itemPrice);  
+        }
+    });
+
+    menu2.addEventListener("click", (event) => {
+        if (event.target.closest(".div-souce")) {
+            incrementCircle();
+            
+            let itemName = event.target.innerText; 
+            let itemPrice = "19 SEK"; 
+            addToCart(itemName, itemPrice);
+        }
+    });
+
+    menu3.addEventListener("click", (event) => {
+        if (event.target.closest(".div-souce")) {
+            incrementCircle();
+            let itemName = event.target.innerText; 
+            let itemPrice = "19 SEK"; 
+            addToCart(itemName, itemPrice);
+        }
+    });
 }
+
 increaseNumber();
-
-
-
-
