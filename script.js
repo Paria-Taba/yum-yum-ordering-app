@@ -82,6 +82,8 @@ async function createMenu() {
 				divText.appendChild(text);
 				menuContainer.appendChild(divText);
 				
+
+				
 			}
 		});
 	} catch (error) {
@@ -176,3 +178,41 @@ async function createMenu3() {
 }
 
 createMenu3();
+
+
+
+    let circle = document.querySelector(".circle");
+    let menuContainer = document.getElementById("menu-container");
+    let menu2 = document.querySelector(".menu-2");
+    let menu3 = document.querySelector(".menu-3");
+    let count = 0;
+
+    function incrementCircle() {
+        count++;
+        circle.innerText = count;
+    }
+
+    // Event delegation for menuContainer (div-row)
+    menuContainer.addEventListener("click", (event) => {
+        if (event.target.classList.contains("div-row")) {
+            incrementCircle();
+        }
+    });
+
+    // Event delegation for all-souce in menu2 (div-souce)
+    let allSouceContainer2 = menu2.querySelector(".all-souce");
+    allSouceContainer2.addEventListener("click", (event) => {
+        if (event.target.classList.contains("div-souce")) {
+            incrementCircle();
+        }
+    });
+
+    // Event delegation for all-souce in menu3 (div-souce)
+    let allSouceContainer3 = menu3.querySelector(".all-souce");
+    allSouceContainer3.addEventListener("click", (event) => {
+        if (event.target.classList.contains("div-souce")) {
+            incrementCircle();
+        }
+    });
+
+
