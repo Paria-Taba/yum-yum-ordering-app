@@ -173,7 +173,7 @@ body {
   font-size: 22px;
 }
 .total-column:last-child {
-  font-size: 16px;
+  font-size: 14px;
 }
 .sum {
   font-size: 32px;
@@ -210,6 +210,6 @@ body {
     display: flex;
     justify-content: space-between;  
     margin-bottom: 12px;
-	padding-right: 40px;
-	padding-left: 40px;
+	padding-right: 50px;
+	padding-left: 50px;
 }
