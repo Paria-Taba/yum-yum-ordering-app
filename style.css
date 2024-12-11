@@ -206,3 +206,10 @@ body {
 .all-cart{
 	padding-top: 100px;
 }
+.cart-item {
+    display: flex;
+    justify-content: space-between;  
+    margin-bottom: 12px;
+	padding-right: 40px;
+	padding-left: 40px;
+}

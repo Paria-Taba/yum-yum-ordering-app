@@ -193,15 +193,25 @@ function increaseNumber() {
         circle.innerText = count;
     }
 
-
-    function addToCart(itemName, itemPrice) {
-        let cartItem = document.createElement("div");
-        cartItem.classList.add("cart-item");
-        cartItem.innerText = `${itemName} .......... ${itemPrice}`;  
-        cartContainer.appendChild(cartItem);
-		let allCart=document.querySelector(".all-cart");
-		allCart.appendChild(cartContainer)
-    }
+	function addToCart(itemName, itemPrice) {
+		let cartItem = document.createElement("div");
+		cartItem.classList.add("cart-item");
+	
+		let itemNameElement = document.createElement("span");
+		itemNameElement.innerText = itemName;
+	
+		let itemPriceElement = document.createElement("span");
+		itemPriceElement.innerText = itemPrice;
+	
+		cartItem.appendChild(itemNameElement);
+		cartItem.appendChild(itemPriceElement);
+	
+		let cartContainer = document.querySelector(".cart-container");
+		cartContainer.appendChild(cartItem);
+	
+		let allCart = document.querySelector(".all-cart");
+		allCart.appendChild(cartContainer);
+	}
 
    
     menuContainer.addEventListener("click", (event) => {
