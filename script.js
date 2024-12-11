@@ -92,42 +92,45 @@ async function createMenu() {
 }
 createMenu();
 
-
 async function createMenu2() {
-	let apiKey = key;
-	try {
-		const menu = await getMenu(); 
-		let menu2=document.querySelector(".menu-2")
-		
-		let menu2Div=document.createElement("div");
-		
-		let menu2P=document.createElement("span")
-		menu2P.textContent="DIPSÅS"
-		let menu2pric=document.createElement("span");
-		menu2pric.textContent="19 SEK"
-		menu2Div.appendChild(menu2P)
-		menu2Div.appendChild(menu2pric)
-		menu2Div.classList.add("menu2-div")
-		menu2.appendChild(menu2Div);
-		
-		menu.items.forEach(item => {
-			if(item.type==="dip"){
-				let divsouce=document.createElement("div");
-			menu2.appendChild(divsouce);
-				let souce=document.createElement("span");
-				souce.textContent=item.name;
-				divsouce.appendChild(souce)
-				divsouce.classList.add("div-souce")
-
-				
-				
-			}
-		});
-			
-			
-	} catch (error) {
-		console.error('Error:', error.message);
-		menuContainer.innerHTML = '<p>Error loading the menu. Please try again!</p>';
-	}
+    let apiKey = key;
+    try {
+        const menu = await getMenu(); 
+        let menu2 = document.querySelector(".menu-2");
+        
+        let menu2Div = document.createElement("div");
+        
+        let menu2P = document.createElement("span");
+        menu2P.textContent = "DIPSÅS";
+        let menu2pric = document.createElement("span");
+        menu2pric.textContent = "19 SEK";
+        menu2Div.appendChild(menu2P);
+        menu2Div.appendChild(menu2pric);
+        menu2Div.classList.add("menu2-div");
+        menu2.appendChild(menu2Div);
+        
+        let divAllSouce = document.createElement("div");
+        divAllSouce.classList.add("all-souce");
+        
+        menu.items.forEach(item => {
+            if (item.type === "dip") {
+                let divsouce = document.createElement("div");
+                divsouce.classList.add("div-souce");
+                
+                let souce = document.createElement("span");
+                souce.textContent = item.name;
+                divsouce.appendChild(souce);
+                
+                divAllSouce.appendChild(divsouce);
+            }
+        });
+      
+        menu2.appendChild(divAllSouce);
+        
+    } catch (error) {
+        console.error('Error:', error.message);
+        menuContainer.innerHTML = '<p>Error loading the menu. Please try again!</p>';
+    }
 }
+
 createMenu2();
