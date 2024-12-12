@@ -24,15 +24,27 @@ money.addEventListener("click",()=>{
 	container3.style.display="block"
 })
 
-buttonOrder.addEventListener("click", () => {
+
+function resetAll() {
+
+    const cartContainer = document.querySelector(".cart-container");
+    const circle = document.querySelector(".circle");
+    const sumElement = document.querySelector(".sum");
+
+    cartContainer.innerHTML = '';
+    circle.innerText = '0';  
+
+    // Reset total sum
+    sumElement.innerText = '0 SEK';
+
     container.style.display = "block";
     container2.style.display = "none";
     container3.style.display = "none";
+	
 
-    const cartContainer = document.querySelector(".cart-container");
-    cartContainer.innerHTML = ""; 
-    const circle = document.querySelector(".circle");
-    circle.innerText = "0"; 
-    const sumElement = document.querySelector(".sum");
-    sumElement.innerText = "0 SEK"; 
+}
+
+buttonOrder.addEventListener("click", () => {
+	resetAll();
 });
+
