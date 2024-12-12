@@ -178,7 +178,6 @@ async function createMenu3() {
 }
 
 createMenu3();
-
 function increaseNumber() {
     let circle = document.querySelector(".circle");
     let menuContainer = document.getElementById("menu-container");
@@ -189,13 +188,12 @@ function increaseNumber() {
     let count = 0;
     let totalSum = 0; 
 
-    
     function incrementCircle() {
         count++;
         circle.innerText = count;
     }
 
-    function addToCart(itemName, itemPrice) {
+    function addToCart(itemName, itemPrice, itemType) {
         let cartItem = document.createElement("div");
         cartItem.classList.add("cart-item");
 
@@ -205,10 +203,14 @@ function increaseNumber() {
         let itemPriceElement = document.createElement("span");
         itemPriceElement.innerText = itemPrice;
 
+        cartItem.setAttribute("data-type", itemType);
+
         cartItem.appendChild(itemNameElement);
         cartItem.appendChild(itemPriceElement);
 
         cartContainer.appendChild(cartItem);
+
+        createCircleDiv(cartItem, itemPrice, itemType);
     }
 
     function updateSum(itemPrice) {
@@ -217,17 +219,68 @@ function increaseNumber() {
         sumElement.innerText = `${totalSum} SEK`; 
     }
 
+    function createCircleDiv(cartItem, itemPrice, itemType) {
+        let divCircle = document.createElement("div");
+        divCircle.setAttribute("class", "div-circle");
+
+        let plus = document.createElement("span");
+        plus.classList.add("circle-design");
+        plus.innerHTML = "+";
+
+        let styck = document.createElement("span");
+        styck.innerHTML = "1 stycken";
+
+        let minus = document.createElement("span");
+        minus.classList.add("circle-design");
+        minus.innerHTML = "-";
+
+        divCircle.appendChild(plus);
+        divCircle.appendChild(styck);
+        divCircle.appendChild(minus);
+		cartContainer.appendChild(divCircle)
+
+        let count = 1;
+        let price = parseFloat(itemPrice.replace("SEK", "").trim());
+
+        plus.addEventListener("click", () => {
+            count++;
+            styck.innerHTML = `${count} stycken`;
+            let newPrice = (price * count).toFixed(2) + " SEK";
+            cartItem.querySelector("span:nth-child(2)").innerText = newPrice;
+            updateTotalSum();
+        });
+
+        minus.addEventListener("click", () => {
+            if (count > 1) {
+                count--;
+                styck.innerHTML = `${count} stycken`;
+                let newPrice = (price * count).toFixed(2) + " SEK";
+                cartItem.querySelector("span:nth-child(2)").innerText = newPrice;
+                updateTotalSum();
+            }
+        });
+    }
+
+    function updateTotalSum() {
+        totalSum = 0;
+        let cartItems = cartContainer.querySelectorAll(".cart-item");
+        cartItems.forEach(item => {
+            let itemPrice = item.querySelector("span:nth-child(2)").innerText;
+            totalSum += parseFloat(itemPrice.replace("SEK", "").trim());
+        });
+        sumElement.innerText = `${totalSum.toFixed(2)} SEK`;
+    }
+
     menuContainer.addEventListener("click", (event) => {
-        if (event.target.classList.contains("div-row")||event.target.classList.contains("title")||event.target.classList.contains("line")||event.target.classList.contains("price")) {
+        if (event.target.classList.contains("div-row") || event.target.classList.contains("title") || event.target.classList.contains("line") || event.target.classList.contains("price")) {
             incrementCircle();
 
             let itemName = event.target.querySelector("h3").innerText;
             let itemPrice = event.target.querySelector("span").innerText;
+            let itemType = "wonton";
 
-            addToCart(itemName, itemPrice);
-            updateSum(itemPrice); 
-			createCircleDiv(cartContainer);
-
+            addToCart(itemName, itemPrice, itemType);
+            updateSum(itemPrice);
         }
     });
 
@@ -237,11 +290,10 @@ function increaseNumber() {
 
             let itemName = event.target.innerText;
             let itemPrice = "19 SEK";
+            let itemType = "dip";
 
-            addToCart(itemName, itemPrice);
-            updateSum(itemPrice); 
-			createCircleDiv(cartContainer);
-
+            addToCart(itemName, itemPrice, itemType);
+            updateSum(itemPrice);
         }
     });
 
@@ -251,35 +303,12 @@ function increaseNumber() {
 
             let itemName = event.target.innerText;
             let itemPrice = "19 SEK";
+            let itemType = "drink";
 
-            addToCart(itemName, itemPrice);
-            updateSum(itemPrice); 
-			createCircleDiv(cartContainer);
-
+            addToCart(itemName, itemPrice, itemType);
+            updateSum(itemPrice);
         }
     });
 }
 
 increaseNumber();
-
-function createCircleDiv (cartContainer){
-	if (!cartContainer || !(cartContainer instanceof HTMLElement)) {
-        console.error("Invalid cartContainer provided.");
-        return;
-    }
-	let divCircle=document.createElement("div");
-	divCircle.setAttribute("class","div-circle")
-	let plus=document.createElement("span");
-	plus.classList.add("circle-design")
-	plus.innerHTML="+"
-	let styck=document.createElement("span");
-	styck.innerHTML="1 stycken"
-	let minus=document.createElement("span");
-	minus.classList.add("circle-design")
-	minus.innerHTML="-";
-	divCircle.appendChild(plus);
-	divCircle.appendChild(styck);
-	divCircle.appendChild(minus);
-	cartContainer.appendChild(divCircle)
-
-}

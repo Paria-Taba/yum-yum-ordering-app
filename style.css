@@ -215,6 +215,7 @@ body {
 }
 .div-circle{
 	margin-left: 50px;
+	margin-bottom: 10px;
 }
 .div-circle>*{
 	padding: 10px;
