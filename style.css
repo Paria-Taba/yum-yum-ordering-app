@@ -213,3 +213,15 @@ body {
 	padding-right: 50px;
 	padding-left: 50px;
 }
+.div-circle{
+	margin-left: 50px;
+}
+.div-circle>*{
+	padding: 10px;
+}
+.circle-design{
+	width: 20px;
+	height: 20px;
+	border-radius: 100%;
+	background-color: #3531313D;
+}

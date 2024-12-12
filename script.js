@@ -226,7 +226,8 @@ function increaseNumber() {
 
             addToCart(itemName, itemPrice);
             updateSum(itemPrice); 
-			
+			createCircleDiv(cartContainer);
+
         }
     });
 
@@ -239,6 +240,8 @@ function increaseNumber() {
 
             addToCart(itemName, itemPrice);
             updateSum(itemPrice); 
+			createCircleDiv(cartContainer);
+
         }
     });
 
@@ -251,8 +254,32 @@ function increaseNumber() {
 
             addToCart(itemName, itemPrice);
             updateSum(itemPrice); 
+			createCircleDiv(cartContainer);
+
         }
     });
 }
 
 increaseNumber();
+
+function createCircleDiv (cartContainer){
+	if (!cartContainer || !(cartContainer instanceof HTMLElement)) {
+        console.error("Invalid cartContainer provided.");
+        return;
+    }
+	let divCircle=document.createElement("div");
+	divCircle.setAttribute("class","div-circle")
+	let plus=document.createElement("span");
+	plus.classList.add("circle-design")
+	plus.innerHTML="+"
+	let styck=document.createElement("span");
+	styck.innerHTML="1 stycken"
+	let minus=document.createElement("span");
+	minus.classList.add("circle-design")
+	minus.innerHTML="-";
+	divCircle.appendChild(plus);
+	divCircle.appendChild(styck);
+	divCircle.appendChild(minus);
+	cartContainer.appendChild(divCircle)
+
+}
