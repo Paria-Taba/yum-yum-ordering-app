@@ -239,7 +239,8 @@ function increaseNumber() {
         divCircle.appendChild(plus);
         divCircle.appendChild(styck);
         divCircle.appendChild(minus);
-		cartContainer.appendChild(divCircle)
+		cartContainer.appendChild(divCircle);
+		
 
         let count = 1;
         let price = parseFloat(itemPrice.replace("SEK", "").trim());
@@ -312,6 +313,8 @@ function increaseNumber() {
             updateSum(itemPrice);
         }
     });
+	product.push(cartItem);
+
 }
 
 increaseNumber();
