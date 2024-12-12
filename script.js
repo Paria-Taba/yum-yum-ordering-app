@@ -198,9 +198,11 @@ function increaseNumber() {
         cartItem.classList.add("cart-item");
 
         let itemNameElement = document.createElement("span");
+		itemNameElement.setAttribute("class","title")
         itemNameElement.innerText = itemName;
 
         let itemPriceElement = document.createElement("span");
+		itemPriceElement.classList.add("price");
         itemPriceElement.innerText = itemPrice;
 
         cartItem.setAttribute("data-type", itemType);
@@ -274,9 +276,10 @@ function increaseNumber() {
     menuContainer.addEventListener("click", (event) => {
         if (event.target.classList.contains("div-row") || event.target.classList.contains("title") || event.target.classList.contains("line") || event.target.classList.contains("price")) {
             incrementCircle();
-
-            let itemName = event.target.querySelector("h3").innerText;
-            let itemPrice = event.target.querySelector("span").innerText;
+			let itemName = event.target.closest(".div-row").querySelector(".title").innerText;
+			let itemPrice = event.target.closest(".div-row").querySelector(".price").innerText;
+ 
+            
             let itemType = "wonton";
 
             addToCart(itemName, itemPrice, itemType);
