@@ -13,13 +13,12 @@ async function getKey(){
 const key= "yum-vKkkQHqQboi7c6JF";
 
 async function getTenant (){
-	
-	let apiKey = key;
+
 	const options = {
 		method: 'POST',
 		headers:{
 			"Content-Type": 'application/json', 
-			"x-zocom": apiKey
+			"x-zocom": key
 		},
 		body: JSON.stringify({ name: 'Paria Taba2' })
 	}
@@ -33,11 +32,10 @@ const tenantId= 'pjem'
 const tenantName='Paria Taba2'
 
 async function getMenu() {
-	let apiKey = key;
 	const options = {
 		method: 'GET',
 		headers: {
-			"x-zocom": apiKey
+			"x-zocom": key
 		}
 	};
 	const response = await fetch(apiUrl + '/menu', options);
@@ -51,7 +49,7 @@ async function getMenu() {
 
 
 async function createMenu() {
-	let apiKey = key;
+	
 	try {
 		const menu = await getMenu(); 
 		
@@ -63,6 +61,7 @@ async function createMenu() {
 				itemElement.classList.add("div-row")
 				
 				let itemName = document.createElement("h3");
+				itemName.setAttribute("class","title")
 				itemName.textContent = item.name.toUpperCase();
 				itemElement.appendChild(itemName);
 				
@@ -71,6 +70,7 @@ async function createMenu() {
 				itemElement.appendChild(itemLine)
 				
 				let itemPrice = document.createElement('span');
+				itemPrice.setAttribute("class","price")
 				itemPrice.textContent = `${item.price} SEK`;
 				itemElement.appendChild(itemPrice);
 				
@@ -95,7 +95,7 @@ async function createMenu() {
 createMenu();
 
 async function createMenu2() {
-	let apiKey = key;
+
 	try {
 		const menu = await getMenu(); 
 		let menu2 = document.querySelector(".menu-2");
@@ -138,7 +138,7 @@ async function createMenu2() {
 createMenu2();
 
 async function createMenu3() {
-	let apiKey = key;
+
 	try {
 		const menu = await getMenu(); 
 		let menu3 = document.querySelector(".menu-3");
@@ -218,7 +218,7 @@ function increaseNumber() {
     }
 
     menuContainer.addEventListener("click", (event) => {
-        if (event.target.classList.contains("div-row")) {
+        if (event.target.classList.contains("div-row")||event.target.classList.contains("title")||event.target.classList.contains("line")||event.target.classList.contains("price")) {
             incrementCircle();
 
             let itemName = event.target.querySelector("h3").innerText;
@@ -226,6 +226,7 @@ function increaseNumber() {
 
             addToCart(itemName, itemPrice);
             updateSum(itemPrice); 
+			
         }
     });
 
