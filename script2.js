@@ -1,3 +1,4 @@
+import { increaseNumber } from "./script.js";
 let boxBasket=document.querySelector(".box-basket");
 let container=document.querySelector(".container")
 let container2=document.querySelector(".container-2");
@@ -6,7 +7,7 @@ let buttonOrder=document.querySelector(".button-order");
 let container4=document.querySelector(".container-4");
 let buttonBack=document.querySelector(".button-back");
 let recept=document.querySelector(".recept");
-const cartContainer = document.querySelector(".cart-container");
+let cartContainer = document.querySelector(".cart-container");
 
 let svg2=document.querySelector(".svg-2")
 
@@ -30,27 +31,30 @@ money.addEventListener("click",()=>{
 
 
 function resetAll() {
-	
+
 	const circle = document.querySelector(".circle");
 	const sumElement = document.querySelector(".sum");
 	
-	cartContainer.innerHTML = '';
-	circle.innerText = '0';  
+	cartContainer.innerHTML="";
 	
+	circle.innerText = '0';  
+
 	sumElement.innerHTML = '0 SEK';
 	
 	container.style.display = "block";
 	container2.style.display = "none";
 	container3.style.display = "none";
 	
-	
+	increaseNumber();
 	
 }
 
 buttonOrder.addEventListener("click", () => {
+	cartContainer.innerHTML = '';
+
 	resetAll();
 	
-	
+
 });
 let buttonRecept1 = document.querySelector(".button-recept1");
 
@@ -91,14 +95,15 @@ buttonRecept1.addEventListener("click", () => {
 	
 	
 	
-	cartContainer.innerHTML = ''; 
 });
 
 buttonBack.addEventListener("click",()=>{
 	
+	cartContainer.innerHTML = '';
+
 	container.style.display = "block";
 	container2.style.display = "none";
 	container3.style.display = "none";
 	container4.style.display = "none"; 
-	
+	resetAll();
 })

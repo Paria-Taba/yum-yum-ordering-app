@@ -176,7 +176,8 @@ async function createMenu3() {
 }
 
 createMenu3();
-function increaseNumber() {
+
+export function increaseNumber() {
     let circle = document.querySelector(".circle");
     let menuContainer = document.getElementById("menu-container");
     let menu2 = document.querySelector(".menu-2");
