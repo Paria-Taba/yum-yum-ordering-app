@@ -5,7 +5,7 @@ let container3=document.querySelector(".container-3");
 let buttonOrder=document.querySelector(".button-order");
 let container4=document.querySelector(".container-4");
 let buttonBack=document.querySelector(".button-back");
-let receptContainer=document.querySelector(".recept-container");
+let recept=document.querySelector(".recept");
 const cartContainer = document.querySelector(".cart-container");
 
 let svg2=document.querySelector(".svg-2")
@@ -55,26 +55,41 @@ buttonOrder.addEventListener("click", () => {
 let buttonRecept1 = document.querySelector(".button-recept1");
 
 buttonRecept1.addEventListener("click", () => {
-    
-    container.style.display = "none";
-    container2.style.display = "none";
-    container3.style.display = "none";
-    container4.style.display = "block"; 
-    
-    
-    let cartItems = document.querySelectorAll(".cart-item");
+	
+	container.style.display = "none";
+	container2.style.display = "none";
+	container3.style.display = "none";
+	container4.style.display = "block"; 
+	
+	
+	let cartItems = document.querySelectorAll(".cart-item");
 	let sumElement = document.querySelector(".sum"); 
 
-    cartItems.forEach(item => {
-        let itemClone = item.cloneNode(true);
-        receptContainer.appendChild(itemClone); 
-    });
+	let divItem=document.createElement("div");
 
+	cartItems.forEach(item => {
+		let itemClone = item.cloneNode(true);
+		divItem.appendChild(itemClone); 
+		
+	});
+		
+	
+	divItem.setAttribute("class","div-item");
+	recept.appendChild(divItem)
+	
 	let sumClone = sumElement.cloneNode(true); 
-    receptContainer.appendChild(sumClone); 
-	let totaldiv=document.createElement("click")
-
-
-    
-    cartContainer.innerHTML = ''; 
+	sumClone.setAttribute("class","sum-clone")
+	
+	let totaldiv=document.createElement("div");
+	totaldiv.setAttribute("class","total-div");
+	let titleTotal=document.createElement("span");
+	titleTotal.innerHTML="TOTALT";
+	titleTotal.setAttribute("class","title-total")
+	totaldiv.append(titleTotal)
+	totaldiv.appendChild(sumClone); 
+	recept.appendChild(totaldiv);
+	
+	
+	
+	cartContainer.innerHTML = ''; 
 });
