@@ -1,5 +1,7 @@
 
 const apiUrl = 'https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com'
+const key= "yum-vKkkQHqQboi7c6JF";
+const menu = await getMenu(); 
 
 async function getKey(){
 	const options = {
@@ -10,7 +12,6 @@ async function getKey(){
 	console.log('API-nyckel data:', data)
 }
 
-const key= "yum-vKkkQHqQboi7c6JF";
 
 async function getTenant (){
 
@@ -51,7 +52,6 @@ async function getMenu() {
 async function createMenu() {
 	
 	try {
-		const menu = await getMenu(); 
 		
 		let menuContainer = document.getElementById("menu-container");
 		
@@ -97,7 +97,6 @@ createMenu();
 async function createMenu2() {
 
 	try {
-		const menu = await getMenu(); 
 		let menu2 = document.querySelector(".menu-2");
 		
 		let menu2Div = document.createElement("div");
@@ -140,7 +139,6 @@ createMenu2();
 async function createMenu3() {
 
 	try {
-		const menu = await getMenu(); 
 		let menu3 = document.querySelector(".menu-3");
 		let menu3Div = document.createElement("div");
 		
@@ -211,7 +209,7 @@ function increaseNumber() {
         cartItem.appendChild(itemPriceElement);
 
         cartContainer.appendChild(cartItem);
-
+	
         createCircleDiv(cartItem, itemPrice, itemType);
     }
 
@@ -313,7 +311,7 @@ function increaseNumber() {
             updateSum(itemPrice);
         }
     });
-	product.push(cartItem);
+	
 
 }
 
