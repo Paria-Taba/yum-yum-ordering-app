@@ -201,11 +201,11 @@ body {
 	color: #353131;
 }
 .cart-item{
-	display: flex;
 	justify-content: center;
 	align-items: center;
 	font-size: 22px;
 	padding: 10px;
+	gap: 30px;
 }
 .all-cart{
 	padding-top: 100px;
@@ -219,7 +219,7 @@ body {
 }
 .div-circle{
 	margin-left: 50px;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 }
 .div-circle>*{
 	padding: 10px;
@@ -375,9 +375,10 @@ body {
 	width: 100%;
 }
 .sum-clone{
-	padding: 20px;
+	padding: 10px;
 	font-size: 24px;
 	font-weight: bold;
+	padding-bottom: 20px;
 }
 
 
@@ -388,5 +389,20 @@ body {
 	}
 	.button-back{
 		width: 80%;
+	}
+}
+
+@media screen and (max-width: 650px) {
+	.recept{
+		width: 90%;
+	}
+}
+@media screen and (max-width: 380px) {
+	.cart-item{
+		flex-direction: column;
+	}
+	.div-circle{
+		display: flex;
+		justify-content: center;
 	}
 }

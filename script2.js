@@ -83,7 +83,7 @@ buttonRecept1.addEventListener("click", () => {
 	let totaldiv=document.createElement("div");
 	totaldiv.setAttribute("class","total-div");
 	let titleTotal=document.createElement("span");
-	titleTotal.innerHTML="TOTALT";
+	titleTotal.innerHTML=`TOTALT (inkl 20% moms)`;
 	titleTotal.setAttribute("class","title-total")
 	totaldiv.append(titleTotal)
 	totaldiv.appendChild(sumClone); 
@@ -93,3 +93,12 @@ buttonRecept1.addEventListener("click", () => {
 	
 	cartContainer.innerHTML = ''; 
 });
+
+buttonBack.addEventListener("click",()=>{
+	
+	container.style.display = "block";
+	container2.style.display = "none";
+	container3.style.display = "none";
+	container4.style.display = "none"; 
+	
+})
