@@ -1,4 +1,10 @@
 import { increaseNumber } from "./script.js";
+import { Cart } from "./script.js";
+import { productlist } from "./script.js";
+import { cartContainer } from "./script.js";
+
+
+
 let boxBasket=document.querySelector(".box-basket");
 let container=document.querySelector(".container")
 let container2=document.querySelector(".container-2");
@@ -7,7 +13,6 @@ let buttonOrder=document.querySelector(".button-order");
 let container4=document.querySelector(".container-4");
 let buttonBack=document.querySelector(".button-back");
 let recept=document.querySelector(".recept");
-let cartContainer = document.querySelector(".cart-container");
 
 let svg2=document.querySelector(".svg-2")
 
@@ -34,9 +39,11 @@ function resetAll() {
 
 	const circle = document.querySelector(".circle");
 	const sumElement = document.querySelector(".sum");
-	
-	cartContainer.innerHTML="";
-	
+
+cartContainer.innerHTML="";
+	Cart.length = 0;
+	productlist.length = 0;
+		
 	circle.innerText = '0';  
 
 	sumElement.innerHTML = '0 SEK';
@@ -50,7 +57,6 @@ function resetAll() {
 }
 
 buttonOrder.addEventListener("click", () => {
-	cartContainer.innerHTML = '';
 
 	resetAll();
 	
@@ -99,7 +105,6 @@ buttonRecept1.addEventListener("click", () => {
 
 buttonBack.addEventListener("click",()=>{
 	
-	cartContainer.innerHTML = '';
 
 	container.style.display = "block";
 	container2.style.display = "none";
