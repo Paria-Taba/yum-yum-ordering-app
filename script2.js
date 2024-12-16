@@ -81,7 +81,7 @@ buttonRecept1.addEventListener("click", () => {
 		let itemClone = item.cloneNode(true);
 		divItem.appendChild(itemClone); 
 		
-	});
+	})
 		
 	
 	divItem.setAttribute("class","div-item");
