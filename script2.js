@@ -78,10 +78,25 @@ buttonRecept1.addEventListener("click", () => {
 	let divItem=document.createElement("div");
 
 	cartItems.forEach(item => {
-		let itemClone = item.cloneNode(true);
-		divItem.appendChild(itemClone); 
-		
-	})
+        let itemNameElement = item.querySelector(".title");
+        let itemPriceElement = item.querySelector(".price"); 
+		let styck=item.querySelector(".styck")
+
+        let itemContainer = document.createElement("div");
+        itemContainer.setAttribute("class", "item-container");
+
+    
+        let itemNameClone = itemNameElement.cloneNode(true);
+        let itemPriceClone = itemPriceElement.cloneNode(true);
+		let styckClone=styck.cloneNode(true);
+
+        itemContainer.appendChild(itemNameClone);
+        itemContainer.appendChild(itemPriceClone);
+		itemContainer.appendChild(styck);
+
+        // Lägg till itemContainer i divItem
+        divItem.appendChild(itemContainer);
+    });
 		
 	
 	divItem.setAttribute("class","div-item");
