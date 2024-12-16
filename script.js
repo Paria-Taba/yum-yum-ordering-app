@@ -202,27 +202,22 @@ export function increaseNumber() {
     }
 
     function addToCart(itemName, itemPrice, itemType) {
-		// Check if the item already exists in the cart
 		let existingItem = Cart.find(cartItem => cartItem.name === itemName);
 	
 		let cartItem;
 		let styck;
 	
 		if (existingItem) {
-			// If the item exists, increase its quantity
 			existingItem.quantity += 1;
 	
-			// Update the quantity display for the existing item
 			styck = document.querySelector(`[data-name="${itemName}"] .styck`);
 			if (styck) {
 				styck.innerText = `${existingItem.quantity} stycken`;
 			}
 	
-			// Update the price display for the existing item
 			let itemPriceElement = document.querySelector(`[data-name="${itemName}"] .price`);
 			itemPriceElement.innerText = `${(existingItem.price * existingItem.quantity).toFixed(2)} SEK`;
 		} else {
-			// If the item doesn't exist, add it to the cart
 			Cart.push({
 				name: itemName,
 				price: parseFloat(itemPrice.replace("SEK", "").trim()),
@@ -230,11 +225,10 @@ export function increaseNumber() {
 				quantity: 1
 			});
 	
-			// Create the cart item visual elements
 			cartItem = document.createElement("div");
 			cartItem.classList.add("cart-item");
-			cartItem.setAttribute("data-name", itemName); // Unique identifier for the item
-	
+			cartItem.setAttribute("data-name", itemName); 
+
 			let itemNameElement = document.createElement("span");
 			itemNameElement.setAttribute("class", "title");
 			itemNameElement.innerText = itemName;
@@ -247,7 +241,6 @@ export function increaseNumber() {
 			cartItem.appendChild(itemPriceElement);
 			cartContainer.appendChild(cartItem);
 	
-			// Create the quantity control (styck + divCircle)
 			let divCircle = document.createElement("div");
 			divCircle.setAttribute("class", "div-circle");
 	
@@ -269,7 +262,6 @@ export function increaseNumber() {
 	
 			cartItem.appendChild(divCircle);
 	
-			// Add event listeners for the + and - buttons
 			let price = parseFloat(itemPrice.replace("SEK", "").trim());
 			plus.addEventListener("click", () => {
 				existingItem = Cart.find(cartItem => cartItem.name === itemName);
@@ -293,7 +285,7 @@ export function increaseNumber() {
 		}
 	
 		updateCircle();
-		console.log(Cart);
+		
 	}
 	
 
@@ -304,9 +296,7 @@ export function increaseNumber() {
         sumElement.innerText = `${totalSum} SEK`; 
     }
 
-    function createCircleDiv(cartItem, itemPrice, itemType) {
-        
-    }
+    
 
     function updateTotalSum() {
         totalSum = 0;

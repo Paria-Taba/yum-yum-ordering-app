@@ -72,6 +72,7 @@ body {
 }
 .title{
 	font-size: 22px;
+	width: 20%;
 }
 .div-row {
   padding: 10px;
@@ -132,6 +133,19 @@ body {
     width: 45%;
   }
 }
+@media screen and (max-width: 450px) {
+	.item-container {
+	  display: flex;
+	  flex-direction: column;
+	 
+	margin-left: 40px;
+	  padding-bottom: 15px;
+	}
+	.title{
+		width: 100%;
+	}
+  }
+  
 
 .container-2 {
   background-color: #eeeeee;
