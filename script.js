@@ -333,7 +333,11 @@ document.addEventListener("DOMContentLoaded", async function (event) {
 		  receptId.innerHTML = `Order ID: ${orderId}`; 
 		  receptId1.innerHTML = `Order ID: ${orderId}`; 
 		  const orderEta=addOrder.order.eta;
-		  min.innerHTML=orderEta;
+		  const etaDate = new Date(orderEta); 
+		  const currentDate = new Date(); 
+	
+		  const etaMinutes = Math.floor((etaDate - currentDate) / (1000 * 60));
+		  min.innerHTML=`ETA ${etaMinutes} MIN`;
   
 	 
 	  Cart = [];
