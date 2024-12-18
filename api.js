@@ -63,3 +63,23 @@ export async function createOrder(cartProductList) {
     console.error("Error creating order:", error);
   }
 }
+export async function getOrder(orderId) {
+	const options = {
+	  method: "GET",
+	  headers: {
+		"Content-Type": "application/json",
+		accept: "application/json",
+		"x-zocom": key,
+	  },
+	};
+  
+	try {
+	  const response = await fetch(baseUrl + `/${tenantId}/orders/${orderId}`, options);
+	  const data = await response.json();
+	  return data;
+	} catch (error) {
+	  console.error("Error fetching order:", error);
+	}
+  }
+
+  

@@ -1,4 +1,4 @@
-import { getMenu, createOrder } from "./api.js";
+import { getMenu, createOrder,getOrder } from "./api.js";
 
 document.addEventListener("DOMContentLoaded", async function (event) {
   let productlist = [];
@@ -328,9 +328,9 @@ document.addEventListener("DOMContentLoaded", async function (event) {
   
 	try {
 	  const addOrder = await createOrder(cartProductList);
+	  const orderId = addOrder.order.id;
+	  const orderData=await getOrder(orderId)
 
-		const orderId = addOrder.order.id;
-		
 		  receptId.innerHTML = `Order ID: ${orderId}`; 
 		  receptId1.innerHTML = `Order ID: ${orderId}`; 
 		  const orderEta=addOrder.order.eta;
@@ -339,8 +339,8 @@ document.addEventListener("DOMContentLoaded", async function (event) {
 	
 		  const etaMinutes = Math.floor((etaDate - currentDate) / (1000 * 60));
 		  min.innerHTML=`ETA ${etaMinutes} MIN`;
+
   
-	 
 	  Cart = [];
 	  container.style.display = "none";
 	  container2.style.display = "none";
@@ -380,6 +380,7 @@ document.addEventListener("DOMContentLoaded", async function (event) {
   let buttonRecept1 = document.querySelector(".button-recept1");
 
   buttonRecept1.addEventListener("click", () => {
+
     
     container.style.display = "none";
     container2.style.display = "none";
@@ -408,6 +409,7 @@ document.addEventListener("DOMContentLoaded", async function (event) {
       itemContainer.appendChild(styck);
 
       divItem.appendChild(itemContainer);
+	
     });
 
     divItem.setAttribute("class", "div-item");
