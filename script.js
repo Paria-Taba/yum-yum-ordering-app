@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", async function (event) {
 
         let itemPriceElement = document.createElement("span");
         itemPriceElement.classList.add("price");
-        itemPriceElement.innerText = product.price;
+        itemPriceElement.innerText = `${product.price} SEK`;
 
         cartItem.appendChild(itemNameElement);
         cartItem.appendChild(itemPriceElement);
@@ -219,7 +219,7 @@ document.addEventListener("DOMContentLoaded", async function (event) {
 
         minus.addEventListener("click", () => {
           existingItem = Cart.find((cartItem) => cartItem.id === product.id);
-          if (existingItem && existingItem.quantity > 1) {
+          if (existingItem && existingItem.quantity > 0) {
             existingItem.quantity -= 1;
             styck.innerHTML = `${existingItem.quantity} stycken`;
             itemPriceElement.innerText = `${(
@@ -227,6 +227,9 @@ document.addEventListener("DOMContentLoaded", async function (event) {
             ).toFixed(2)} SEK`;
             updateTotalSum();
           }
+		  if(existingItem.quantity===0){
+			cartItem.remove();
+		  }
         });
       }
 
