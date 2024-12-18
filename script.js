@@ -206,7 +206,7 @@ document.addEventListener("DOMContentLoaded", async function (event) {
         cartItem.appendChild(divCircle);
 
         plus.addEventListener("click", () => {
-          existingItem = Cart.find((cartItem) => cartItem.name === itemName);
+          existingItem = Cart.find((cartItem) => cartItem.id === product.id);
           if (existingItem) {
             existingItem.quantity += 1;
             styck.innerHTML = `${existingItem.quantity} stycken`;
@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", async function (event) {
         });
 
         minus.addEventListener("click", () => {
-          existingItem = Cart.find((cartItem) => cartItem.name === itemName);
+          existingItem = Cart.find((cartItem) => cartItem.id === product.id);
           if (existingItem && existingItem.quantity > 1) {
             existingItem.quantity -= 1;
             styck.innerHTML = `${existingItem.quantity} stycken`;
