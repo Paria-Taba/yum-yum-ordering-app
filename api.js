@@ -82,4 +82,21 @@ export async function getOrder(orderId) {
 	}
   }
 
+  export async function getReceiptsId(orderId) {
+	const options = {
+	  method: "GET",
+	  headers: {
+		"Content-Type": "application/json",
+		accept: "application/json",
+		"x-zocom": key,
+	  },
+	};
   
+	try {
+	  const response = await fetch(baseUrl + `/receipts/${orderId}`, options);
+	  const data = await response.json();
+	  return data;
+	} catch (error) {
+	  console.error("Error fetching order:", error);
+	}
+  }

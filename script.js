@@ -331,8 +331,8 @@ document.addEventListener("DOMContentLoaded", async function (event) {
 	  const orderId = addOrder.order.id;
 	  const orderData=await getOrder(orderId)
 
-		  receptId.innerHTML = `Order ID: ${orderId}`; 
-		  receptId1.innerHTML = `Order ID: ${orderId}`; 
+		  receptId.innerHTML = `#${orderId}`; 
+		  receptId1.innerHTML = `#${orderId}`; 
 		  const orderEta=addOrder.order.eta;
 		  const etaDate = new Date(orderEta); 
 		  const currentDate = new Date(); 
