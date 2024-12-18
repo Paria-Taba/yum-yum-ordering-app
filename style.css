@@ -1,6 +1,6 @@
 body {
   margin: 0 auto;
-  font-family: Fira Sans;
+  font-family: "Fira Sans";
   height: 100vh;
 }
 .container {
@@ -37,8 +37,7 @@ body {
   font-weight: bold;
 }
 .title-header {
-  display: flex;
-  justify-content: center;
+ margin-left: 20px;
   font-size: 32px;
   font-weight: 700;
   line-height: 38.4px;
@@ -72,10 +71,13 @@ body {
 }
 .title{
 	font-size: 22px;
-	width: 20%;
 	font-weight: bold;
 }
+.recept-id, .recept-id1{
+	font-size: 15px;
+}
 .price{
+	float: right;
 	font-weight: bold;
 }
 .money{
@@ -140,19 +142,7 @@ body {
     width: 45%;
   }
 }
-@media screen and (max-width: 450px) {
-	.item-container {
-	  display: flex;
-	  flex-direction: column;
-	 
-	margin-left: 40px;
-	  padding-bottom: 15px;
-	}
-	.title{
-		width: 100%;
-	}
-  }
-  
+
 
 .container-2 {
   background-color: #eeeeee;
@@ -235,20 +225,25 @@ body {
 	padding-top: 100px;
 }
 .cart-item {
-    display: flex;
-    justify-content: space-between;  
+ 
     margin-bottom: 16px;
 	padding-right: 50px;
 	padding-left: 50px;
 }
-
+.div-circle{
+	margin-top: 15px;
+	
+}
 .div-circle>*{
-	padding: 10px;
+	padding: 7px;
 }
 .circle-design{
 	border-radius: 100%;
 	background-color: #3531313D;
 	cursor: pointer;
+}
+.circle-design:hover{
+	background-color: #211c1c73;
 }
 .container-3{
 	display: flex;
@@ -269,6 +264,9 @@ body {
 }
 .title-wonton{
 	font-size: 32px;
+
+
+
 }
 .min{
 	font-size: 26px;
@@ -312,9 +310,7 @@ body {
 
 .item-container{
 	display: flex;
-	justify-content: space-between;
-	padding-left: 20PX;
-	padding-right: 20px;
+	justify-content: space-around;
 	font-size: 16px;
 	font-weight: bold;
 }
@@ -427,14 +423,5 @@ body {
 @media screen and (max-width: 650px) {
 	.recept{
 		width: 90%;
-	}
-}
-@media screen and (max-width: 600px) {
-	.cart-item{
-		flex-direction: column;
-	}
-	.div-circle{
-		display: flex;
-		justify-content: center;
 	}
 }
