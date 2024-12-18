@@ -132,7 +132,6 @@ document.addEventListener("DOMContentLoaded", async function (event) {
     let menu2 = document.querySelector(".menu-2");
     let menu3 = document.querySelector(".menu-3");
     let sumElement = document.querySelector(".sum");
-    //let count = 0;
     let totalSum = 0;
 
     function updateCircle() {
@@ -319,6 +318,8 @@ document.addEventListener("DOMContentLoaded", async function (event) {
   svg2.addEventListener("click", () => {
     container2.style.display = "none";
     container.style.display = "block";
+	resetAll();
+	increaseNumber();
   });
 
   let money = document.querySelector(".money");
@@ -327,11 +328,8 @@ document.addEventListener("DOMContentLoaded", async function (event) {
   
 	try {
 	  const addOrder = await createOrder(cartProductList);
-	  console.log("API response:", addOrder);
-  
 
 		const orderId = addOrder.order.id;
-		console.log("Order ID:", orderId); 
 		
 		  receptId.innerHTML = `Order ID: ${orderId}`; 
 		  receptId1.innerHTML = `Order ID: ${orderId}`; 
