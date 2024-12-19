@@ -256,10 +256,7 @@ document.addEventListener("DOMContentLoaded", async function (event) {
       FirstEvent = 1;
       menuContainer.addEventListener("click", (event) => {
         if (
-          event.target.classList.contains("div-row") ||
-          event.target.classList.contains("title") ||
-          event.target.classList.contains("line") ||
-          event.target.classList.contains("price")
+          event.target.classList.contains("div-row")
         ) {
           
           let productId = parseInt(event.target.getAttribute("product-id"));
