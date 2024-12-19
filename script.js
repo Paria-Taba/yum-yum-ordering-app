@@ -326,7 +326,8 @@ document.addEventListener("DOMContentLoaded", async function (event) {
 	try {
 	  const addOrder = await createOrder(cartProductList);
 	  const orderId = addOrder.order.id;
-	  const orderData=await getOrder(orderId)
+	  const orderData=await getOrder(orderId);
+	  console.log(orderData);
 
 		  receptId.innerHTML = `#${orderId}`; 
 		  receptId1.innerHTML = `#${orderId}`; 

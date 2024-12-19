@@ -9,6 +9,7 @@ body {
   padding-bottom: 100px;
 }
 .box-basket {
+	margin-right: 50px;
   width: 64px;
   height: 64px;
   border-radius: 4px;
@@ -37,7 +38,7 @@ body {
   font-weight: bold;
 }
 .title-header {
- margin-left: 20px;
+ margin-left: 70px;
   font-size: 32px;
   font-weight: 700;
   line-height: 38.4px;
@@ -50,9 +51,11 @@ body {
 #menu-container,
 .menu-2,
 .menu-3 {
+	margin: 16px;
   color: #f4f3f1f0;
   background-color: #605858;
-  margin: 16px;
+  margin-left:70px;
+  margin-right: 70px;
   border-radius: 8px;
   padding: 15px;
 }
@@ -222,6 +225,8 @@ body {
 	gap: 30px;
 }
 .all-cart{
+	margin-left: 70px;
+	margin-right: 70px;
 	padding-top: 100px;
 }
 .cart-item {
@@ -339,7 +344,7 @@ body {
 	flex-direction: column;
  }
  .recept{
-	width: 60%;
+	width: 80%;
 	background-color: #EEEEEE;
 	display: flex;
 	flex-direction: column;
@@ -408,7 +413,9 @@ body {
 	font-weight: bold;
 	padding-bottom: 20px;
 }
-
+.div-circle>*{
+	padding: 10px;
+}
 
 
 @media screen and (max-width: 550px) {
@@ -424,4 +431,23 @@ body {
 	.recept{
 		width: 90%;
 	}
+}
+
+@media screen and (max-width: 700px) {
+	#menu-container, .menu-2, .menu-3 {
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+	.box-basket{
+		margin-right: 5px;
+	}
+	.title-header{
+		margin-left: 20px;
+	}
+	.all-cart{
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+
+
 }
